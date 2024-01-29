@@ -46,7 +46,6 @@ h4 {
   border-radius: 10px;
   padding: 1rem;
   margin-top: 10px;
-  
 }
 
 .card {
@@ -54,7 +53,6 @@ h4 {
   width: 100%;
   height: 100%;
   overflow: hidden;
- 
 }
 
 .aboutMe {
@@ -73,7 +71,6 @@ article {
   padding: 8px;
   margin-bottom: 1rem;
   opacity: 1;
- 
 }
 
 article:hover {
@@ -116,8 +113,6 @@ article:hover .description {
   opacity: 1;
 }
 
-  
-
 article:not(:hover) .title {
   transition: 2s;
 }
@@ -147,7 +142,7 @@ article:not(:hover) .title {
 .imagenes:hover {
   display: flex;
   height: 8rem;
-  width: 8rem; 
+  width: 8rem;
   border: #343541 solid;
   overflow: hidden;
   margin: auto;
@@ -181,7 +176,7 @@ img:hover {
   opacity: 1;
 }
 .hobbies p {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 footer {

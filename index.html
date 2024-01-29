@@ -1,11 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Proyecto M1</h1>
-</body>
+  <head>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portafolio</title>
+  </head>
+  <body>
+    <header id="name">
+      <h1>FLORES, Simón G.</h1>
+    </header>
+
+    <section id="profession">
+      <h2>Full Stack Developer Student</h2>
+    </section>
+
+    <main class="principal">
+      <section class="card">
+        <div class="aboutMe">
+          <h3>Sobre mí</h3>
+        </div>
+
+        <article class="yo">
+          <div class="title">
+            <h4>Información Personal</h4>
+          </div>
+          <div class="description">
+            <p>
+              Bienvenido/a a mi portafolio,<br />
+              <br />
+              aquí encontrarás mi información básica para que pueda usted
+              conocerme. <br />
+              Me encuentro viviendo en Alemania desde hace 3 años, donde aquí he
+              aprendido hablar y escribir Alemán y desarrollarme anteriormente
+              en Inglés. <br />
+              En Argentina he finalizado mis estudios como técnico químico
+              universitario en la carrera de Ingeniería Química.<br />
+            </p>
+          </div>
+        </article>
+
+        <article class="tecnoFav">
+          <div class="title">
+            <h4>Mis tecnologías favoritas</h4>
+          </div>
+          <div class="imagenes">
+            <img
+              src="https://www.freecodecamp.org/news/content/images/2022/10/golang.png"
+              alt="GOlang"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+              alt="JavaScript"
+            />
+            <img
+              src="https://logowik.com/content/uploads/images/731_java.jpg"
+              alt="Java"
+            />
+          </div>
+        </article>
+
+        <article class="hobbies">
+          <div class="title">
+            <h4>Hobbies</h4>
+          </div>
+          <div class="description">
+            <p>
+              Detalle tus actividades favoritas con una breve descrición y
+              coloque una imagen de la misma.
+            </p>
+            <div class="infoUser">
+              <input type="text" name="titulo" placeholder="Título" />
+              <input type="text" name="texto" placeholder="Descripción" />
+              <input type="url" name="URL" placeholder="URL de la imagen" />
+              <input type="submit" value="Adjuntar" />
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <main class="secundario">
+      <section class="card">
+        <article>
+          <div class="title">
+            <h4>Tus actividades favoritas</h4>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <h4>¡Gracias por visitarme!</h4>
+
+      <ul>
+        <li><a href="https://www.linkedin.com/in/simongf94/">Linkedin</a></li>
+        <li><a href="https://platzi.com/p/simonflores_10/">Platzi</a></li>
+        <li><a href="https://github.com/FLORES-SimonG">GitHub</a></li>
+      </ul>
+    </footer>
+  </body>
 </html>

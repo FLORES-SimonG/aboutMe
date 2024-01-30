@@ -55,13 +55,13 @@ h4 {
   overflow: hidden;
 }
 
-.aboutMe {
+.sobreMi {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 4px;
 }
-.aboutMe:hover {
+.sobreMi:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   transition: 1.5s;

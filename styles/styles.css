@@ -166,9 +166,25 @@ main,
 
 .cardHobbies ul {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
   padding: 4px;
-  height: auto;
-  width: 5rem;
+}
+
+.renderLi {
+  cursor: pointer;
+}
+.cardHobbies ul .renderLi img {
+  opacity: 0.5;
+}
+.cardHobbies ul .renderLi:hover img {
+  opacity: 1;
+  transition: 1s;
+}
+
+.cardHobbies ul p {
+  text-align: center;
 }
 
 .hobbies .description {
@@ -206,6 +222,8 @@ main,
   grid-column: auto;
   color: #343541;
   border: #343541 solid;
+  height: auto;
+  width: min-content;
 }
 
 .renderLi img {

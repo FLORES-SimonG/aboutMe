@@ -1,45 +1,88 @@
-//! DEFINO QUÉ LUGAR QUIERO SELECCIONAR
-const formulario = document.querySelector(".form");
-//!BUSCO DENTRO DEL FORMULARIO Y SELECCIONO LO QUE QUIERO QUE LEA
-const titulo = formulario.querySelector(".nombreJS");
-const comentario = formulario.querySelector(".descripcionJS");
-const url = formulario.querySelector(".urlJS");
+// //! DEFINO QUÉ LUGAR QUIERO SELECCIONAR
+// const formulario = document.querySelector(".form");
+// //!BUSCO DENTRO DEL FORMULARIO Y SELECCIONO LO QUE QUIERO QUE LEA
+// const titulo = formulario.querySelector(".nombreJS");
+// const comentario = formulario.querySelector(".descripcionJS");
+// const url = formulario.querySelector(".urlJS");
 
-//!LUGAR DONDE ENVIO
-const listaHobbies = document.querySelector("#envioActividad");
+// //!LUGAR DONDE ENVIO
+// const listaHobbies = document.querySelector("#envioActividad");
 
-//!MI FUNCIÓN QUE SE ACTIVA
-formulario.addEventListener("submit", (e) => {
-  e.preventDefault();
-  render();
-});
+// //!MI FUNCIÓN QUE SE ACTIVA
+// formulario.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   render();
+// });
 
-//!MI FUNCIÓN PRINCIPAL CUANDO SE ACTIVA LA ANTERIOR
-function render() {
-  //! CREO MIS ELEMENTOS
-  const lista = document.createElement("li");
-  let tituloRender = document.createElement("h4");
-  let imagenRender = document.createElement("img");
-  let parrafoRender = document.createElement("p");
+// //!MI FUNCIÓN PRINCIPAL CUANDO SE ACTIVA LA ANTERIOR
+// function render() {
+//   //! CREO MIS ELEMENTOS
+//   const lista = document.createElement("li");
+//   let tituloRender = document.createElement("h4");
+//   let imagenRender = document.createElement("img");
+//   let parrafoRender = document.createElement("p");
 
-  //!LE ASIGNO VALOR A LOS MISMOS
-  tituloRender.textContent = titulo.value;
-  imagenRender.src = url.value;
-  imagenRender.setAttribute("alt", "Imagen");
-  parrafoRender.textContent = comentario.value;
+//   //!LE ASIGNO VALOR A LOS MISMOS
+//   tituloRender.textContent = titulo.value;
+//   imagenRender.src = url.value;
+//   imagenRender.setAttribute("alt", "Imagen");
+//   parrafoRender.textContent = comentario.value;
 
-  //!LE CREO HIJOS A ESOS ELEMENTOS
-  lista.appendChild(tituloRender);
-  lista.appendChild(imagenRender);
-  lista.appendChild(parrafoRender);
+//   //!LE CREO HIJOS A ESOS ELEMENTOS
+//   lista.appendChild(tituloRender);
+//   lista.appendChild(imagenRender);
+//   lista.appendChild(parrafoRender);
 
-  //! LE ADICIONO UNA ETIQUETA
-  lista.classList.toggle("renderLi");
-  //! A MI LISTA PRINCIPAL, LE ADICIONO TODO LO ANTERIOR
-  listaHobbies.appendChild(lista);
+//   //! LE ADICIONO UNA ETIQUETA
+//   lista.classList.toggle("renderLi");
+//   //! A MI LISTA PRINCIPAL, LE ADICIONO TODO LO ANTERIOR
+//   listaHobbies.appendChild(lista);
 
-  //!RESETEO VALORES
-  titulo.value = "";
-  comentario.value = "";
-  url.value = "";
+//   //!RESETEO VALORES
+//   titulo.value = "";
+//   comentario.value = "";
+//   url.value = "";
+// }
+
+class Activity {
+  constructor(id, title, description, imgUrl) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.imgUrl = imgUrl;
+  }
 }
+
+class Repository {
+  constructor() {
+    this.activities = [];
+  }
+  getAllActivities() {
+    return this.activities;
+  }
+
+  createActivity(id, title, description, imgUrl) {
+    const nuevaActividad = new Activity(id, title, description, imgUrl);
+    this.activities.push(nuevaActividad);
+  }
+
+  deleteActivity(id) {
+    this.activities = this.activities.filter((x) => x.id !== id);
+  }
+}
+
+const repositorio = new Repository();
+
+repositorio.createActivity("ARG01", "Futbol", "Juego de Pelota", "futbol.img");
+
+repositorio.createActivity("ARG02", "Tenis", "Juego con raqueta", "tenis.img");
+
+repositorio.createActivity("ARG03", "Ajedrez", "Juego de inteligencia", "agedrez.img");
+
+repositorio.deleteActivity("ARG03");
+// repositorio.deleteActivity('ARG02');
+repositorio.deleteActivity("ARG01");
+
+console.log(repositorio.getAllActivities());
+
+console.log(repositorio.activities);

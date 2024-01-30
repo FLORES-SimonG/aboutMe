@@ -38,7 +38,8 @@ h4 {
   text-align: center;
 }
 
-main {
+main,
+.secundario {
   display: flex;
   padding-right: 50%;
   background-color: whitesmoke;
@@ -54,30 +55,30 @@ main {
   overflow: hidden;
 }
 
-.sobreMi {
+.welcome {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 4px;
 }
-.sobreMi:hover {
+.welcome:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   transition: 1.5s;
   cursor: pointer;
 }
-.yo,
+.personal,
 .tecnoFav,
 .hobbies {
   padding: 8px;
   margin-bottom: 1rem;
   opacity: 1;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   text-align: center;
 }
 
-.yo:hover,
+.personal:hover,
 .tecnoFav:hover,
 .hobbies:hover {
   transition: 4s;
@@ -88,7 +89,7 @@ main {
   max-height: 500px;
 }
 
-.yo:hover .title,
+.personal:hover .title,
 .tecnoFav:hover .title,
 .hobbies:hover .title {
   transition: 2s;
@@ -101,16 +102,17 @@ main {
   cursor: pointer;
 }
 
-.yo .description,
+.personal .description,
 .hobbies .description {
   display: flex;
   height: 0;
   color: whitesmoke;
   font-size: 0;
   opacity: 0;
+  border: whitesmoke solid;
 }
 
-.yo:hover .description,
+.personal:hover .description,
 .hobbies:hover .description {
   transition: 5s;
   border-radius: 10px;
@@ -125,7 +127,7 @@ main {
   height: auto;
 }
 
-.yo:not(:hover) .title,
+.personal:not(:hover) .title,
 .tecnoFav:not(:hover) .title,
 .hobbies:not(:hover) .title {
   transition: 2s;

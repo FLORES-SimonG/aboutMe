@@ -38,9 +38,8 @@ h4 {
   text-align: center;
 }
 
-.principal,
-.secundario {
-  display: block;
+main {
+  display: flex;
   padding-right: 50%;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -67,13 +66,20 @@ h4 {
   transition: 1.5s;
   cursor: pointer;
 }
-article {
+.yo,
+.tecnoFav,
+.hobbies {
   padding: 8px;
   margin-bottom: 1rem;
   opacity: 1;
+  /* display: flex; */
+  align-items: center;
+  text-align: center;
 }
 
-article:hover {
+.yo:hover,
+.tecnoFav:hover,
+.hobbies:hover {
   transition: 4s;
   border: 1px solid whitesmoke;
   border-radius: 25px;
@@ -82,7 +88,9 @@ article:hover {
   max-height: 500px;
 }
 
-article:hover .title {
+.yo:hover .title,
+.tecnoFav:hover .title,
+.hobbies:hover .title {
   transition: 2s;
   border-radius: 10px;
   background: firebrick;
@@ -93,15 +101,18 @@ article:hover .title {
   cursor: pointer;
 }
 
-/*  */
-article .description {
+.yo .description,
+.hobbies .description {
+  display: flex;
+  height: 0;
   color: whitesmoke;
   font-size: 0;
   opacity: 0;
 }
 
-article:hover .description {
-  transition: 3s;
+.yo:hover .description,
+.hobbies:hover .description {
+  transition: 5s;
   border-radius: 10px;
   font-size: medium;
   color: whitesmoke;
@@ -111,72 +122,78 @@ article:hover .description {
   border: 4px;
   cursor: pointer;
   opacity: 1;
+  height: auto;
 }
 
-article:not(:hover) .title {
+.yo:not(:hover) .title,
+.tecnoFav:not(:hover) .title,
+.hobbies:not(:hover) .title {
   transition: 2s;
 }
 
 .tecnoFav .imagenes {
-  opacity: 0;
-  height: 0;
-}
-.tecnoFav:hover .imagenes {
+  height: 60px;
+  width: 100%;
   display: flex;
-  object-fit: cover;
-  height: 18rem;
-  width: 18rem;
-  border: #343541 solid;
-  cursor: pointer;
+  justify-content: space-around;
   align-items: center;
-  text-align: center;
-  overflow: hidden;
-  flex-grow: 1;
-  border: #343541 solid;
-  margin: auto;
-  margin-top: 20px;
-  transition: 2s;
-  opacity: 1;
-}
-
-.imagenes:hover {
-  display: flex;
-  height: 8rem;
-  width: 8rem;
-  border: #343541 solid;
-  overflow: hidden;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.imagenes img {
-  width: 0px;
-  display: flex;
-  object-fit: cover;
-  flex-grow: 1;
-  opacity: 0.3;
-  border: #343541 solid;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  cursor: pointer;
+  border: whitesmoke solid;
   border-radius: 25px;
 }
-img:hover {
+.tecnoFav .imagenes img {
+  height: 0;
+  width: 0;
+}
+
+.tecnoFav:hover .imagenes:hover img {
+  height: 60px;
+  width: 60px;
+  transition: 1s;
   cursor: pointer;
-  width: 600px;
+  border-radius: 25px;
+}
+
+.renderLi {
+  padding: 8px;
+  margin: 4px;
+  border-radius: 25px;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  overflow: auto;
+  background-color: whitesmoke;
+  grid-column: auto;
+  color: #343541;
   border: #343541 solid;
-  transition: 2s;
-  opacity: 1;
+}
+
+.renderLi img {
+  margin-top: 4px;
+  height: 200px;
+  width: 200px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.cardHobbies ul {
+  display: flex;
+  padding: 4px;
+  height: auto;
+  width: 5rem;
 }
 
 .hobbies .description {
   opacity: 0;
+  height: 0;
 }
 .hobbies:hover .description {
   opacity: 1;
+  height: auto;
 }
 .hobbies p {
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 footer {

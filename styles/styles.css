@@ -109,7 +109,6 @@ main,
   color: whitesmoke;
   font-size: 0;
   opacity: 0;
-  border: whitesmoke solid;
 }
 
 .personal:hover .description,
@@ -125,6 +124,7 @@ main,
   cursor: pointer;
   opacity: 1;
   height: auto;
+  border: white solid;
 }
 
 .personal:not(:hover) .title,
@@ -145,10 +145,20 @@ main,
   cursor: pointer;
   border: whitesmoke solid;
   border-radius: 25px;
+  padding: 8px;
+  
+  
 }
 .tecnoFav .imagenes img {
   height: 0;
   width: 0;
+  opacity: 0.2;
+  
+  
+}
+.tecnoFav .imagenes img:hover {
+    opacity: 1;
+    
 }
 
 .tecnoFav:hover .imagenes:hover img {
@@ -157,26 +167,7 @@ main,
   transition: 1s;
   cursor: pointer;
   border-radius: 25px;
-}
-
-.renderLi {
-  padding: 8px;
-  margin: 4px;
-  border-radius: 25px;
-  justify-content: center;
-  align-items: center;
-  background-color: whitesmoke;
-  grid-column: auto;
-  color: #343541;
-  border: #343541 solid;
-}
-
-.renderLi img {
-  margin-top: 4px;
-  height: 200px;
-  width: 200px;
-  border-radius: 25px;
-  object-fit: cover;
+  
 }
 
 .cardHobbies ul {
@@ -198,6 +189,40 @@ main,
   padding: 1rem;
 }
 
+.form{
+  border: white solid;
+  border-radius: 25px;
+  padding: 12px;
+  background-color: firebrick;
+  
+}
+.form input{
+  background-color: whitesmoke;
+  border-radius: 25px;
+  display: flex;
+  margin: 4px;
+  
+}
+
+.renderLi {
+  padding: 8px;
+  margin: 4px;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  grid-column: auto;
+  color: #343541;
+  border: #343541 solid;
+}
+
+.renderLi img {
+  margin-top: 4px;
+  height: 200px;
+  width: 200px;
+  border-radius: 25px;
+  object-fit: cover;
+}
 footer {
   margin-top: 1rem;
   text-align: center;

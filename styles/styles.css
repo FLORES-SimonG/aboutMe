@@ -146,19 +146,14 @@ main,
   border: whitesmoke solid;
   border-radius: 25px;
   padding: 8px;
-  
-  
 }
 .tecnoFav .imagenes img {
   height: 0;
   width: 0;
   opacity: 0.2;
-  
-  
 }
 .tecnoFav .imagenes img:hover {
-    opacity: 1;
-    
+  opacity: 1;
 }
 
 .tecnoFav:hover .imagenes:hover img {
@@ -167,7 +162,6 @@ main,
   transition: 1s;
   cursor: pointer;
   border-radius: 25px;
-  
 }
 
 .cardHobbies ul {
@@ -189,19 +183,17 @@ main,
   padding: 1rem;
 }
 
-.form{
+.form {
   border: white solid;
   border-radius: 25px;
   padding: 12px;
   background-color: firebrick;
-  
 }
-.form input{
+.form input {
   background-color: whitesmoke;
   border-radius: 25px;
   display: flex;
   margin: 4px;
-  
 }
 
 .renderLi {

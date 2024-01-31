@@ -200,11 +200,11 @@ main,
   flex-direction: row;
   /* align-content: center; */
 }
-#envioActividad:hover .renderLi:hover {
+#envioActividad:hover .renderDiv:hover {
   opacity: 1;
   transition: 2s;
 }
-#envioActividad .renderLi {
+#envioActividad .renderDiv {
   padding: 8px;
   background-color: #343541;
   width: 240px;
@@ -220,17 +220,17 @@ main,
   /* align-self: center; */
 }
 
-.renderLi:hover {
+.renderDiv:hover {
   cursor: pointer;
 }
 
-.renderLi h4 {
+.renderDiv h4 {
   margin: 8px;
   width: -webkit-fill-available;
   border: #d1d5d8 solid 3px;
   border-radius: 25px;
 }
-.renderLi img {
+.renderDiv img {
   width: 200px;
   padding: 8px;
   object-fit: cover;
@@ -239,7 +239,7 @@ main,
   border: #d1d5d8 solid 2px;
   border-radius: 25px;
 }
-.renderLi p {
+.renderDiv p {
   justify-content: center;
   align-items: center;
   margin: 8px;
@@ -254,10 +254,10 @@ main,
 } */
 
 /* 
-.cardHobbies ul .renderLi img {
+.cardHobbies ul .renderDiv img {
   opacity: 0.5;
 }
-.cardHobbies ul .renderLi:hover img {
+.cardHobbies ul .renderDiv:hover img {
   opacity: 1;
   transition: 1s;
 }
@@ -273,7 +273,7 @@ main,
 
 }
 
-.renderLi {
+.renderDiv {
   padding: 8px;
   margin: 4px;
   border-radius: 25px;
@@ -289,7 +289,7 @@ main,
   cursor: pointer;
 }
 
-.renderLi img {
+.renderDiv img {
   margin-top: 4px;
   height: auto;
   width: 200px;

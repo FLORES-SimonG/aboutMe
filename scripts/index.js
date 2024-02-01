@@ -5,45 +5,90 @@ const titulo = formulario.querySelector(".nombreJS");
 const comentario = formulario.querySelector(".descripcionJS");
 const url = formulario.querySelector(".urlJS");
 
+const callBack=(e) => {e.preventDefault();  render();}
+
+
 //!LUGAR DONDE ENVIO
 const listaHobbies = document.querySelector("#envioActividad");
 
 //!MI FUNCIÓN QUE SE ACTIVA
-formulario.addEventListener("submit", (e) => {
-  e.preventDefault();
-  render();
-});
+formulario.addEventListener("submit", callBack);
 
-//!MI FUNCIÓN PRINCIPAL CUANDO SE ACTIVA LA ANTERIOR
+
+//MI FUNCIÓN PRINCIPAL CUANDO SE ACTIVA LA ANTERIOR
 function render() {
-  //! CREO MIS ELEMENTOS
+  // CREO MIS ELEMENTOS
 
   const lista = document.createElement("div");
   let tituloRender = document.createElement("h4");
   let imagenRender = document.createElement("img");
   let parrafoRender = document.createElement("p");
 
-  //!LE ASIGNO VALOR A LOS MISMOS
+  //LE ASIGNO VALOR A LOS MISMOS
   tituloRender.textContent = titulo.value;
   imagenRender.src = url.value;
   imagenRender.setAttribute("alt", "Imagen");
   parrafoRender.textContent = comentario.value;
 
-  //!LE CREO HIJOS A ESOS ELEMENTOS
+  //!Eliminación con un click
+  lista.addEventListener("click", (event)=> {
+    event.target.remove();
+  })
+
+  //LE CREO HIJOS A ESOS ELEMENTOS
   lista.appendChild(tituloRender);
   lista.appendChild(imagenRender);
   lista.appendChild(parrafoRender);
 
-  //! LE ADICIONO UNA ETIQUETA
+  // LE ADICIONO UNA ETIQUETA
   lista.classList.toggle("renderDiv");
-  //! A MI LISTA PRINCIPAL, LE ADICIONO TODO LO ANTERIOR
+  // A MI LISTA PRINCIPAL, LE ADICIONO TODO LO ANTERIOR
   listaHobbies.appendChild(lista);
 
-  //!RESETEO VALORES
+  //RESETEO VALORES
   titulo.value = "";
   comentario.value = "";
   url.value = "";
 }
+
+
+const formularioCreador = document.getElementById("formularioInputCreador");
+const nombreCreador = document.getElementById("inputCreador");
+const divDeveloper = document.getElementById("envioDeveloper");
+const finDeveloper = document.getElementById("finDeveloper");
+
+formularioCreador.addEventListener('submit', callBack2);
+
+function callBack2(e) {
+    e.preventDefault();
+    renderDev();
+}
+
+function renderDev() {
+    const nombre = nombreCreador.value;
+
+    // Creao un elemento h6
+    const nombreElemento = document.createElement("h6");
+    // Asigno mi nombre
+    nombreElemento.textContent = nombre;
+
+    // Limpio
+    divDeveloper.innerHTML = "";
+
+    // Agrego hijo
+    divDeveloper.appendChild(nombreElemento);
+
+   
+
+    // Limpio
+    nombreCreador.value = "";
+}
+
+
+
+
+
+
 
 class Activity {
   constructor({id, title, description, imgUrl}) {

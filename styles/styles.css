@@ -165,15 +165,16 @@ main,
   cursor: pointer;
   border-radius: 25px;
 }
-
 .hobbies .description {
   opacity: 0;
   height: 0;
 }
+
 .hobbies:hover .description {
   opacity: 1;
   height: auto;
 }
+
 .hobbies p {
   padding: 1rem;
 }
@@ -184,6 +185,7 @@ main,
   padding: 12px;
   background-color: firebrick;
 }
+
 .form input {
   background-color: whitesmoke;
   border-radius: 25px;
@@ -198,16 +200,16 @@ main,
   justify-content: center;
   align-items: flex-start;
   flex-direction: row;
-  
   /* align-content: center; */
 }
+
 #envioActividad:hover * {
   opacity: 1;
   transition: 2s;
-  opacity: 1;
   cursor: pointer;
 }
-#envioActividad * {
+
+#envioActividad div {
   padding: 8px;
   background-color: #343541;
   width: 240px;
@@ -220,23 +222,6 @@ main,
   justify-content: flex-start;
   align-items: center;
   opacity: 0.5;
-  /* align-self: center; */
-  padding: 8px;
-  background-color: firebrick;
-  width: 240px;
-  margin: 8px;
-  border-radius: 25px;
-  border: whitesmoke solid;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  opacity: 0.5;
-  transition: opacity 0.5s;
-}
-
-/* .renderDiv {
   padding: 8px;
   background-color: #343541;
   width: 240px;
@@ -250,12 +235,7 @@ main,
   align-items: center;
   opacity: 0.5;
   transition: opacity 0.5s;
-} */
-
-/* .renderDiv:hover {
-  opacity: 1;
-  cursor: pointer;
-} */
+}
 
 #envioActividad * h4 {
   margin: 8px;
@@ -278,6 +258,22 @@ main,
   justify-content: center;
   align-items: center;
   margin: 8px;
+}
+
+#divCreador {
+  margin: 8px;
+  background-color: firebrick;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  border: whitesmoke solid 2px;
+  margin: 12px;
+}
+
+#divCreador * {
+  margin: 4px;
+  border-radius: 2px;
 }
 
 footer {

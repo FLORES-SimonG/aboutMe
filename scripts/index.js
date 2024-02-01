@@ -1,97 +1,5 @@
-//! DEFINO QUÉ LUGAR QUIERO SELECCIONAR
-const formulario = document.querySelector(".form");
-//!BUSCO DENTRO DEL FORMULARIO Y SELECCIONO LO QUE QUIERO QUE LEA
-const titulo = formulario.querySelector(".nombreJS");
-const comentario = formulario.querySelector(".descripcionJS");
-const url = formulario.querySelector(".urlJS");
-
-const callBack=(e) => {e.preventDefault();  render();}
-
-
-//!LUGAR DONDE ENVIO
-const listaHobbies = document.querySelector("#envioActividad");
-
-//!MI FUNCIÓN QUE SE ACTIVA
-formulario.addEventListener("submit", callBack);
-
-
-//MI FUNCIÓN PRINCIPAL CUANDO SE ACTIVA LA ANTERIOR
-function render() {
-  // CREO MIS ELEMENTOS
-
-  const lista = document.createElement("div");
-  let tituloRender = document.createElement("h4");
-  let imagenRender = document.createElement("img");
-  let parrafoRender = document.createElement("p");
-
-  //LE ASIGNO VALOR A LOS MISMOS
-  tituloRender.textContent = titulo.value;
-  imagenRender.src = url.value;
-  imagenRender.setAttribute("alt", "Imagen");
-  parrafoRender.textContent = comentario.value;
-
-  //!Eliminación con un click
-  lista.addEventListener("click", (event)=> {
-    event.target.remove();
-  })
-
-  //LE CREO HIJOS A ESOS ELEMENTOS
-  lista.appendChild(tituloRender);
-  lista.appendChild(imagenRender);
-  lista.appendChild(parrafoRender);
-
-  // LE ADICIONO UNA ETIQUETA
-  lista.classList.toggle("renderDiv");
-  // A MI LISTA PRINCIPAL, LE ADICIONO TODO LO ANTERIOR
-  listaHobbies.appendChild(lista);
-
-  //RESETEO VALORES
-  titulo.value = "";
-  comentario.value = "";
-  url.value = "";
-}
-
-
-const formularioCreador = document.getElementById("formularioInputCreador");
-const nombreCreador = document.getElementById("inputCreador");
-const divDeveloper = document.getElementById("envioDeveloper");
-const finDeveloper = document.getElementById("finDeveloper");
-
-formularioCreador.addEventListener('submit', callBack2);
-
-function callBack2(e) {
-    e.preventDefault();
-    renderDev();
-}
-
-function renderDev() {
-    const nombre = nombreCreador.value;
-
-    // Creao un elemento h6
-    const nombreElemento = document.createElement("h6");
-    // Asigno mi nombre
-    nombreElemento.textContent = nombre;
-
-    // Limpio
-    divDeveloper.innerHTML = "";
-
-    // Agrego hijo
-    divDeveloper.appendChild(nombreElemento);
-
-   
-
-    // Limpio
-    nombreCreador.value = "";
-}
-
-
-
-
-
-
-
 class Activity {
-  constructor({id, title, description, imgUrl}) {
+  constructor({ id, title, description, imgUrl }) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -102,15 +10,13 @@ class Activity {
 class Repository {
   constructor() {
     this.activities = [];
-    
   }
   getAllActivities() {
     return this.activities;
   }
 
   createActivity(object) {
-    
-    const activity = new Activity({id: this.id , ...object});
+    const activity = new Activity(object);
     this.activities.push(activity);
   }
 
@@ -121,93 +27,89 @@ class Repository {
 
 const repositorio = new Repository();
 
-// const obj = {
-//   id: 1,
-//   title: "batman",
-//   description: "es una filma",
-//   imgUrl: "via.placeholder.com/150",
-// };
+const callBack = (e) => {
+  e.preventDefault();
+  const titulo = formulario.querySelector(".nombreJS");
+  const comentario = formulario.querySelector(".descripcionJS");
+  const url = formulario.querySelector(".urlJS");
+  const idNumber = Date.now();
+  const obj = {
+    id: idNumber,
+    title: titulo.value,
+    description: comentario.value,
+    imgUrl: url.value,
+  };
+  repositorio.createActivity(obj);
+  mostrarCartas();
+  formulario.reset();
+};
 
-// const obj2 = {
-//   id: 2,
-//   title: "spiderman",
-//   description: "es una filma",
-//   imgUrl: "via.placeholder.com/555555550",
-// };
+const mostrarCartas = () => {
+  const carta = document.getElementById("envioActividad");
+  carta.innerHTML = "";
+  const actividadesParciales = repositorio.getAllActivities();
+  const conjuntoTarjetas = actividadesParciales.map((actividad) => {
+    return crearCarta(actividad);
+  });
+  conjuntoTarjetas.forEach((tarjeta) => carta.appendChild(tarjeta));
+};
 
-// // console.log(repositorio)
-// repositorio.createActivity(obj)
-// // console.log(repositorio)
-// repositorio.createActivity(obj2);
-// // console.log(repositorio);
+const crearCarta = (actividad) => {
+  const { title, description, imgUrl } = actividad;
+  const lista = document.createElement("div");
+  let tituloRender = document.createElement("h4");
+  tituloRender.textContent = title;
+  let imagenRender = document.createElement("img");
+  imagenRender.src = imgUrl;
+  imagenRender.setAttribute("alt", "Imagen");
 
-// repositorio.deleteActivity(2)
-// console.log(repositorio)
+  let parrafoRender = document.createElement("p");
+  parrafoRender.textContent = description;
+  lista.appendChild(tituloRender);
+  lista.appendChild(imagenRender);
+  lista.appendChild(parrafoRender);
 
-// repositorio.createActivity("ARG01", "Futbol", "Juego de Pelota", "futbol.img");
+  lista.addEventListener("click", () => {
+    lista.remove(); // Elimina la tarjeta completa al hacer clic en ella
+  });
 
-// repositorio.createActivity("ARG02", "Tenis", "Juego con raqueta", "tenis.img");
+  return lista;
+};
 
-// repositorio.createActivity("ARG03", "Ajedrez", "Juego de inteligencia", "agedrez.img");
+const formulario = document.querySelector(".form");
 
-// repositorio.deleteActivity("ARG03");
-// // repositorio.deleteActivity('ARG02');
-// repositorio.deleteActivity("ARG01");
+formulario.addEventListener("submit", callBack);
 
-// console.log(repositorio.getAllActivities());
+document.addEventListener("DOMContentLoaded", function () {
+  const formularioInputCreador = document.getElementById(
+    "formularioInputCreador"
+  );
+  const botonCreador = document.getElementById("botonCreador");
 
-// console.log(repositorio.activities);
+  botonCreador.addEventListener("click", function (e) {
+    e.preventDefault();
+    renderDev();
+  });
 
+  function renderDev() {
+    const nombreCreador = document.getElementById("inputCreador");
+    const divDeveloper = document.getElementById("envioDeveloper");
+    const nombre = nombreCreador.value;
 
+    // Creo un elemento h6
+    const nombreElemento = document.createElement("h6");
+    // Asigno el nombre
+    nombreElemento.textContent = nombre;
 
-// class Activity { 
-//   constructor({ id, title, description, imgUrl }) {
-//       console.log(id)
-//       this.id = id
-//       this.title = title
-//       this.description = description
-//       this.imgUrl =imgUrl
-//   }
-// }
+    // Agrego el hijo a envioDeveloper
+    nombreElemento.style.margin = "8px";
+    nombreElemento.style.textAlign = "center";
+    nombreElemento.style.backgroundColor = "firebrick";
+    nombreElemento.style.borderRadius = "25px";
+    nombreElemento.style.color = "whitesmoke";
+    divDeveloper.appendChild(nombreElemento);
 
-// class Repository {
-//   constructor() {
-//       this.activities = []
-//       this.id = 0
-//   }
-//   getAllActivities() {
-//       return this.activities
-//   }
-//   createActivity(object) {
-//       this.id ++
-//       const activity = new Activity({ id: this.id, ...object })
-
-//       this.activities.push(activity)
-//   }
-//   deleteActivity(id) { 
-//       const filtered = this.activities.filter(act => act.id !== id)
-//       this.activities = filtered
-//   }
-// }
-
-// const repository = new Repository()
-
-// const obj = {
-// title: "Activity 1",
-// description: "Description 1",
-// imgUrl: "https://via.placeholder.com/150",
-// };
-// console.log(repository)
-// repository.createActivity(obj)
-// console.log(repository);
-// repository.createActivity(obj);
-// console.log(repository);
-// repository.createActivity(obj);
-// console.log(repository);
-// repository.createActivity(obj);
-// console.log(repository.getAllActivities())
-// repository.deleteActivity(2)
-// repository.deleteActivity(3)
-// repository.deleteActivity(4)
-// repository.deleteActivity(1);
-// console.log(repository.getAllActivities());
+    // Limpio el nombreCreador
+    nombreCreador.value = "";
+  }
+});

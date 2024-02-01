@@ -191,7 +191,7 @@ main,
   margin: 4px;
 }
 
-#envioActividad {
+#envioActividad *{
   /* background-color: red; */
   display: flex;
   flex-wrap: wrap;
@@ -220,7 +220,24 @@ main,
   /* align-self: center; */
 }
 
+.renderDiv {
+  padding: 8px;
+  background-color: #343541;
+  width: 240px;
+  margin: 8px;
+  border-radius: 25px;
+  border: whitesmoke solid;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
 .renderDiv:hover {
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -230,8 +247,9 @@ main,
   border: #d1d5d8 solid 3px;
   border-radius: 25px;
 }
+
 .renderDiv img {
-  width: 200px;
+  width: 40px;
   padding: 8px;
   object-fit: cover;
   align-items: center;
@@ -239,63 +257,13 @@ main,
   border: #d1d5d8 solid 2px;
   border-radius: 25px;
 }
+
 .renderDiv p {
   justify-content: center;
   align-items: center;
   margin: 8px;
 }
 
-/* .cardHobbies ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  padding: 4px;
-} */
-
-/* 
-.cardHobbies ul .renderDiv img {
-  opacity: 0.5;
-}
-.cardHobbies ul .renderDiv:hover img {
-  opacity: 1;
-  transition: 1s;
-}
-
-.cardHobbies ul p {
-  text-align: center;
-  color: red;
-  width: 150px;
-  align-items: center;
-  display: flex;
-  
-
-
-}
-
-.renderDiv {
-  padding: 8px;
-  margin: 4px;
-  border-radius: 25px;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-  display: flex;
-  flex-wrap: wrap;
-  color: #343541;
-  border: #343541 solid;
-  height: auto;
-  width: 200px;
-  cursor: pointer;
-}
-
-.renderDiv img {
-  margin-top: 4px;
-  height: auto;
-  width: 200px;
-  border-radius: 25px;
-  object-fit: cover;
-} */
 footer {
   margin-top: 1rem;
   text-align: center;

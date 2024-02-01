@@ -39,9 +39,18 @@ const callBack = (e) => {
     description: comentario.value,
     imgUrl: url.value,
   };
-  repositorio.createActivity(obj);
-  mostrarCartas();
-  formulario.reset();
+
+  if (
+    titulo.value.length == 0 ||
+    comentario.value.length == 0 ||
+    url.value.length == 0
+  ) {
+    alert("COMPLETA LOS DATOS");
+  } else {
+    repositorio.createActivity(obj);
+    mostrarCartas();
+    formulario.reset();
+  }
 };
 
 const mostrarCartas = () => {
@@ -55,7 +64,7 @@ const mostrarCartas = () => {
 };
 
 const crearCarta = (actividad) => {
-  const { title, description, imgUrl } = actividad;
+  const { id, title, description, imgUrl } = actividad;
   const lista = document.createElement("div");
   let tituloRender = document.createElement("h4");
   tituloRender.textContent = title;
@@ -70,7 +79,9 @@ const crearCarta = (actividad) => {
   lista.appendChild(parrafoRender);
 
   lista.addEventListener("click", () => {
-    lista.remove(); // Elimina la tarjeta completa al hacer clic en ella
+    lista.remove();
+
+    repositorio.deleteActivity(id);
   });
 
   return lista;
@@ -80,36 +91,35 @@ const formulario = document.querySelector(".form");
 
 formulario.addEventListener("submit", callBack);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const formularioInputCreador = document.getElementById(
-    "formularioInputCreador"
-  );
-  const botonCreador = document.getElementById("botonCreador");
+const botonCreador = document.getElementById("botonCreador");
+const nombreElemento = document.createElement("h6");
+const divDeveloper = document.getElementById("envioDeveloper");
 
-  botonCreador.addEventListener("click", function (e) {
-    e.preventDefault();
-    renderDev();
-  });
+// Establecer estilos iniciales
+nombreElemento.style.margin = "8px";
+nombreElemento.style.padding = "4px";
+nombreElemento.style.textAlign = "center";
+nombreElemento.style.backgroundColor = "firebrick";
+nombreElemento.style.borderRadius = "25px";
+nombreElemento.style.color = "whitesmoke";
+nombreElemento.style.border = "2px solid whitesmoke";
 
-  function renderDev() {
-    const nombreCreador = document.getElementById("inputCreador");
-    const divDeveloper = document.getElementById("envioDeveloper");
-    const nombre = nombreCreador.value;
-
-    // Creo un elemento h6
-    const nombreElemento = document.createElement("h6");
-    // Asigno el nombre
-    nombreElemento.textContent = nombre;
-
-    // Agrego el hijo a envioDeveloper
-    nombreElemento.style.margin = "8px";
-    nombreElemento.style.textAlign = "center";
-    nombreElemento.style.backgroundColor = "firebrick";
-    nombreElemento.style.borderRadius = "25px";
-    nombreElemento.style.color = "whitesmoke";
-    divDeveloper.appendChild(nombreElemento);
-
-    // Limpio el nombreCreador
-    nombreCreador.value = "";
-  }
+botonCreador.addEventListener("click", function (e) {
+  e.preventDefault();
+  renderDev();
 });
+
+function renderDev() {
+  const nombreCreador = document.getElementById("inputCreador");
+  const nombre = nombreCreador.value;
+
+  // Asignar el nombre
+  nombreElemento.textContent = nombre;
+
+  // Limpiar el nombreCreador
+  nombreCreador.value = "";
+
+  // Agregar el elemento al divDeveloper
+  divDeveloper.innerHTML = "";
+  divDeveloper.appendChild(nombreElemento);
+}

@@ -203,24 +203,13 @@ main,
   /* align-content: center; */
 }
 
-#envioActividad:hover * {
+#envioActividad:hover div:hover {
   opacity: 1;
   transition: 2s;
   cursor: pointer;
 }
 
 #envioActividad div {
-  padding: 8px;
-  background-color: #343541;
-  width: 240px;
-  margin: 8px;
-  border-radius: 25px;
-  border: whitesmoke solid;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
   opacity: 0.5;
   padding: 8px;
   background-color: #343541;
@@ -254,10 +243,11 @@ main,
   border-radius: 25px;
 }
 
-#envioActividad p {
+#envioActividad div p {
   justify-content: center;
   align-items: center;
   margin: 8px;
+  padding: inherit;
 }
 
 #divCreador {
